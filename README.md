@@ -1,12 +1,12 @@
 # mhcc-talks-html
 
 Generate HTML for http://www.mhcc.asn.au/talks.html using data file
-talks-data.csv, which should be in the format below. Note the file should
-exist in the compressed audio files directory, and its name should start with
-the date stamp. Lines should be in reverse chronological order, and should be
-preserved - just add new ones at the top.
+`talks-data.csv`, which should be in the format below. Lines should be in
+reverse chronological order, and should be preserved - just add new ones at the
+top.
 
-Data files are expected to be in the directory `../compressed audio files`.
+Audio files are expected to be in the directory `../compressed audio files`, and
+their names should start with the date stamp.
 
 ```
 # Date,Speaker,Topic,Filename 1[,Filename 2[,...]]
