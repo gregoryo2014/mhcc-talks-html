@@ -14,14 +14,14 @@ Data files are expected to be in the directory `../compressed audio files`.
 09/09/2019,Name Of Speaker,Topic of talk,20190909.filename.mp3
 ```
 
-## HOW TO USE:
-1. Populate talks-data.csv
-1. `./generate-html.sh > data/10-data`
-1. Concatenate the data to the clipboard:
+## How To Use
+* Populate talks-data.csv
+* `./generate-html.sh > data/10-data`
+* Concatenate the data to the clipboard:
   * Ubuntu: `cat data/* | xclip -sel c`
   * Mac:    `cat data/* | pbcopy`
-1. Paste into the talks page HTML object.
-1. Click Publish.
+* Paste into the talks page HTML object.
+* Click Publish.
 
 Separately (before or after), upload the audio files to the "Talks holding page" on
 Weebly.
