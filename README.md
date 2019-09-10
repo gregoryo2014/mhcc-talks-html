@@ -1,12 +1,11 @@
 # mhcc-talks-html
 
-Generate HTML for http://www.mhcc.asn.au/talks.html using data file
+Generate HTML for http://www.mhcc.asn.au/talks.html using metadata file
 `talks-data.csv`, which should be in the format below. Lines should be in
 reverse chronological order, and should be preserved - just add new ones at the
 top.
 
-Audio files are expected to be in the directory `../compressed audio files`, and
-their names should start with the date stamp.
+All data files are expected to be in the directory `../compressed audio files`.
 
 ```
 # Date,Speaker,Topic,Filename 1[,Filename 2[,...]]
@@ -16,7 +15,7 @@ their names should start with the date stamp.
 
 ## How To Use
 * Populate talks-data.csv
-* `./generate-html.sh > data/10-data`
+* `./generate-html.py > data/10-data`
 * Concatenate the data to the clipboard:
   * Ubuntu: `cat data/* | xclip -sel c`
   * Mac:    `cat data/* | pbcopy`
@@ -25,3 +24,5 @@ their names should start with the date stamp.
 
 Separately (before or after), upload the audio files to the "Talks holding page" on
 Weebly.
+
+Consider archiving the HTML snippets into yearly files.
