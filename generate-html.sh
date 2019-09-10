@@ -8,8 +8,9 @@
 # should be in reverse chronological order, and should be preserved - just add
 # new ones.
 #
-# 20190910-filename2.mp3,Name Of Speaker 2,Topic of talk 2
-# 20190909.filename.mp3,Name Of Speaker,Topic of talk
+# # Bare filename,Speaker,Topic
+# 20190910-filename2,Name Of Speaker 2,Topic of talk 2
+# 20190909.filename,Name Of Speaker,Topic of talk
 #
 ####################
 # HOW TO USE:
@@ -32,7 +33,7 @@ set -o errexit
 usage() {
   cat <<- EOF
   Usage:
-  $0 -f file -s 'speaker name' -t 'talk topic'
+  $0 -d 'data file directory'
 EOF
 }
 
@@ -44,20 +45,20 @@ DATA_FILE="$SCRIPT_DIR/talks-data.csv"
 TALKS_DIR="$SCRIPT_DIR/../compressed audio files"
 
 # process file
-for line in $(cat $DATA_FILE); do
+for line in $(grep -v "^#" $DATA_FILE); do
   FILENAME=$(echo $line | cut -f1 -d,)
   SPEAKER=$(echo $line | cut -f2 -d,)
   TOPIC=$(echo $line | cut -f3 -d,)
   UPLOAD_FILE="$TALKS_DIR/$FILENAME"
   FILENAME=$(basename $UPLOAD_FILE)
   DATE=$(echo $FILENAME | cut -c 1-8)
-  SIZE=$(du -m "$UPLOAD_FILE" | cut -f 1)
+  SIZE=$(du -h "$UPLOAD_FILE.mp3" | cut -f 1)
 
   cat <<EOF
 <TR CLASS=R> <TD CLASS=C1>$DATE</TD> <TD CLASS=C2>$SPEAKER</TD>
 <TD CLASS=C3>$TOPIC</TD> <TD CLASS=C4>
-<A TARGET="MHCC" HREF="/uploads/6/0/7/6/6076729/$FILENAME">$FILENAME</A>
-</TD><TD CLASS=C5>${SIZE}MB</TD></TR>
+<A TARGET="MHCC" HREF="/uploads/6/0/7/6/6076729/$FILENAME.mp3">$FILENAME.mp3</A><BR />
+</TD><TD CLASS=C5>${SIZE}B</TD></TR>
 
 EOF
 
