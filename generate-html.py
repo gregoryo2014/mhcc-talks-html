@@ -35,7 +35,7 @@ for line in open("talks-data.csv", "r"):
       body += """\
 <A TARGET="MHCC" HREF="/uploads/6/0/7/6/6076729/%s">%s</A><BR />
 """ % (filename, filename)
-      path = "../compressed audio files/" + filename
+      path = "../compressed-audio-files/" + filename
 
       # Store the biggest file size for output
       this_size = os.path.getsize(path)
