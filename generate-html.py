@@ -48,3 +48,5 @@ for line in open("talks-data.csv", "r"):
     print body.rstrip()
     print tail
     print
+
+print "</TABLE>"
