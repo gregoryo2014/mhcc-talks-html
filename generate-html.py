@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Generate HTML for Weebly talks page. See README.md for details.
 #
@@ -44,9 +44,9 @@ for line in open("talks-data.csv", "r"):
 
     tail = "</TD><TD CLASS=C5>" + str(sizeof_fmt(size)) + "</TD></TR>"
 
-    print head.rstrip()
-    print body.rstrip()
-    print tail
-    print
+    print(head.rstrip())
+    print(body.rstrip())
+    print(tail)
+    print()
 
-print "</TABLE>"
+print("</TABLE>")
